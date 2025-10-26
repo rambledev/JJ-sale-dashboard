@@ -9,7 +9,6 @@ const menuItems = [
   { icon: LayoutDashboard, label: 'Dashboard', href: '/emp' },
   { icon: Plus, label: 'บันทึกการขาย', href: '/emp/sales/new' },
   { icon: FileText, label: 'ประวัติของฉัน', href: '/emp/history' },
-  { icon: Calendar, label: 'ปฏิทิน', href: '/emp/calendar' },
 ];
 
 export default function EMPSidebar() {
