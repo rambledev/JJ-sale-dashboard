@@ -6,9 +6,8 @@ import { usePathname } from 'next/navigation';
 import { useState } from 'react';
 
 const menuItems = [
-  { icon: LayoutDashboard, label: 'Dashboard', href: '/ceo' },
+  { icon: LayoutDashboard, label: 'Dashboard', href: '/ceo/dashboard' },
   { icon: Building2, label: 'หน่วยขาย', href: '/ceo/units' },
-  { icon: TrendingUp, label: 'เปรียบเทียบ', href: '/ceo/compare' },
   { icon: FileBarChart, label: 'รายงาน', href: '/ceo/reports' },
 ];
 

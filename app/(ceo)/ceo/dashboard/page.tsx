@@ -79,6 +79,7 @@ interface ChannelPerformance {
   growth: number;
   products: ProductDetail[];
   topSellingSize: ProductSize;
+  [key: string]: any; // Allow index signature for Recharts
 }
 
 interface ProductDetail {
@@ -86,6 +87,7 @@ interface ProductDetail {
   quantity: number;
   unitPrice: number;
   revenue: number;
+  [key: string]: any; // Allow index signature for Recharts
 }
 
 interface SalesUnitPerformance {
@@ -647,7 +649,7 @@ export default function CEODashboard() {
                 ยอดขายแยกตามช่องทาง
               </h3>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                {unit.channelBreakdown
+                {[...unit.channelBreakdown]
                   .sort((a, b) => b.revenue - a.revenue)
                   .map((channel, index) => {
                     const percentage = (channel.revenue / unit.totalRevenue) * 100;
@@ -793,7 +795,7 @@ export default function CEODashboard() {
                     </tr>
                   </thead>
                   <tbody>
-                    {channel.products
+                    {[...channel.products]
                       .sort((a, b) => b.revenue - a.revenue)
                       .map((product, index) => {
                         const percentage = (product.revenue / channel.revenue) * 100;
@@ -873,7 +875,7 @@ export default function CEODashboard() {
                 <ResponsiveContainer width="100%" height={300}>
                   <PieChart>
                     <Pie
-                      data={channel.products}
+                      data={channel.products as any}
                       cx="50%"
                       cy="50%"
                       labelLine={false}
@@ -1096,7 +1098,7 @@ export default function CEODashboard() {
                 </tr>
               </thead>
               <tbody>
-                {channelPerformance
+                {[...channelPerformance]
                   .sort((a, b) => b.revenue - a.revenue)
                   .map((channel, index) => (
                     <tr
@@ -1217,7 +1219,7 @@ export default function CEODashboard() {
             <ResponsiveContainer width="100%" height={350}>
               <PieChart>
                 <Pie
-                  data={channelPerformance}
+                  data={channelPerformance as any}
                   cx="50%"
                   cy="50%"
                   labelLine={false}
@@ -1279,7 +1281,7 @@ export default function CEODashboard() {
                 </tr>
               </thead>
               <tbody>
-                {salesUnitsPerformance
+                {[...salesUnitsPerformance]
                   .sort((a, b) => b.totalRevenue - a.totalRevenue)
                   .map((unit) => (
                     <tr

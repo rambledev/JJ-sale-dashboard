@@ -17,7 +17,7 @@ export default function LoginPage() {
     // Mock login - ตรวจสอบ email เพื่อกำหนด role
     setTimeout(() => {
       if (email.includes('ceo')) {
-        router.push('/ceo');
+        router.push('/ceo/dashboard');
       } else if (email.includes('head')) {
         router.push('/head');
       } else if (email.includes('admin')) {
